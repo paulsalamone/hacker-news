@@ -1,23 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import Header from './Header';
+import ItemList from './ItemList';
+// import Spinner from '.Spinner';
+import Pagination from './Pagination';
+import Footer from './Footer';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+        <Header className="header" />
+
+        <ItemList className="item-list" />
+
+        {/* <Spinner className="spinner" /> */}
+
+        <Pagination className="pagination" />
+
+
+      <Footer className="footer" />
+      
     </div>
   );
 }
