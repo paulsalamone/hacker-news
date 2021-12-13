@@ -10,16 +10,16 @@ function App() {
   return (
     <div className="App">
 
-        <Header className="header" />
+        <Header />
 
-        <ItemList className="item-list" />
+        <ItemList />
 
         {/* <Spinner className="spinner" /> */}
 
-        <Pagination className="pagination" />
+        <Pagination  />
 
 
-      <Footer className="footer" />
+      <Footer />
       
     </div>
   );

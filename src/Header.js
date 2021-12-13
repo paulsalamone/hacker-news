@@ -7,11 +7,14 @@ const Header = () => {
 	return (
 		<>
 		<header className="header">
-			<img src={logo} />
+		<div id="logo-text">
+		<img src={logo} id="logo"/>
 		<h1>Hacker News</h1>
+		</div>
 		<form>
-			<p>Search: </p>
+			<p id="search">Search: </p>
 			<input type="text" placeholder="enter text" id="search-box"></input>
+			<button>Submit</button>
 
 		</form>
 		</header>
