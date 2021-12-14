@@ -1,26 +1,53 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from './Header';
 import ItemList from './ItemList';
-// import Spinner from '.Spinner';
 import Pagination from './Pagination';
 import Footer from './Footer';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function App() {
+
+  const [items, setItems] = useState([]);
+
+  const example = "react";
+
+  const hnApi = `http://hn.algolia.com/api/v1/search?query=${example}`;
+
+  //use effect used to run when component is mounting
+
+  
+
+  // fetch method using Axios to fetch API
+  const fetchData = () => {
+    axios
+      .get(hnApi)
+      .then((res) => setItems(res.data))
+      .catch((err) => console.error(err))
+  }
+
+  useEffect(() => {
+    fetchData()
+  })
+
+  console.log(items.hits);
+
+
+
   return (
     <div className="App">
 
-        <Header />
+      <Header />
 
-        <ItemList />
+      <ItemList hits={items.hits} />
 
-        {/* <Spinner className="spinner" /> */}
+      {/* <Spinner className="spinner" /> */}
 
-        <Pagination  />
+      <Pagination />
 
 
       <Footer />
-      
+
     </div>
   );
 }
