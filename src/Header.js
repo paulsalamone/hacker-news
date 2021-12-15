@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import logo from "./assets/logo-new.svg";
+import logo from "./assets/logo.png";
 
-const Header = () => {
-  // const [searchTerm, setSearchTerm] = useState("");
+const Header = ({search, setSearch, query, setQuery}) => {
+  
 
-  // useEffect(() => {}, []);
-
-  // console.log(searchTerm);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(`${search} submitted!`);
+    setSearch(query);
+    setQuery("");
+  };
 
   return (
     <>
@@ -16,17 +19,15 @@ const Header = () => {
           <img src={logo} id="logo" alt="logo" />
           <h1>Hacker News</h1>
         </div>
-
-        {/* <form onSubmit={() => setSearchTerm(searchTerm)}>
-          <p id="search">Search: </p>
-          <input
-            type="text"
-            placeholder="enter text"
-            id="search-box"
-            value={searchTerm}
-          ></input>
-          <button>Submit</button>
-        </form> */}
+        <form onSubmit={handleSubmit}>
+        <input
+          value={query}
+          onChange={(e) => {
+            setQuery(e.target.value);
+          }}
+        ></input>
+        <button type="submit">Submit</button>
+      </form>
       </header>
     </>
   );

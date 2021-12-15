@@ -3,47 +3,44 @@ import "./App.css";
 import Header from "./Header";
 import Footer from "./Footer";
 import axios from "axios";
-import ItemList from "./ItemList";
 
-function App(props) {
+function App() {
   const [data, setData] = useState({ hits: [] });
-  const [query, setQuery] = useState("");
+  const [page, setPage] = useState("2")
   const [search, setSearch] = useState("");
+  const [query, setQuery] = useState("");
+  
 
   useEffect(async () => {
     const result = await axios(
-      `https://hn.algolia.com/api/v1/search?query=${search}`
+      `https://hn.algolia.com/api/v1/search?query=${search}&page=${page}`
     );
 
     setData(result.data);
   }, [search]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("submitted!");
-    setSearch(query);
-    setQuery("");
-  };
+  
 
   return (
     <>
-      <Header />
+      <Header search={search} query={query} setSearch={setSearch} setQuery={setQuery}/>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          value={query}
-          onChange={(e) => {
-            setQuery(e.target.value);
-          }}
-        ></input>
-        <button type="submit">Submit</button>
-      </form>
-
-      <ItemList data={data} search={search} />
-
+      <>
+      <p className="results-message">
+        Search results for search string: <b>{search}</b>
+      </p>
+      <ol>
+        {data.hits.map((item) => (
+          <li key={item.objectID}>
+            <a href={item.url}>{(item.title !== "") && item.title}</a>
+          </li>
+        ))}
+      </ol>
+      </>
       <Footer />
     </>
   );
 }
 
 export default App;
+
