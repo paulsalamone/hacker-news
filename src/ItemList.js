@@ -3,20 +3,20 @@ import React from "react";
 // import MockData from './hackernews.json'
 import "./App.css";
 
-const ItemList = ({ hits }) => {
-  console.log(hits);
+const ItemList = (props) => {
+  console.log(props.hits);
 
   return (
     <>
-      <main>
-        {hits.map((hit) => {
+      {/* <main>
+        {props.hits.map((hit) => {
           return (
             <>
               <li>{hit.title}</li>
             </>
           );
         })}
-      </main>
+      </main> */}
     </>
   );
 };
