@@ -1,113 +1,113 @@
 /* GENERAL */
 * {
-	/* border: 1px solid blue; */
+  /* border: 1px solid blue; */
 }
 
 .App {
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	font-size: 16px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 90%;
-	max-width: 1400px;
-	box-sizing: border-box;
-	margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 1400px;
+  box-sizing: border-box;
+  margin: 0;
 }
 
 /* HEADER */
 .header {
-	background-color: #ff7316;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	width: 90%;
-	max-width: 1400px;
+  background-color: #ff7316;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 90%;
+  max-width: 1400px;
 }
 
 #logo-text {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: white;
 }
 
 #logo-text h1 {
-	margin-left: 10px;
-	font-size: 1.5rem;
+  margin-left: 10px;
+  font-size: 1.5rem;
 }
 
 #logo {
-	width: 70px;
-	height: auto;
+  width: 70px;
+  height: auto;
 }
 
 .header form {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .header form button {
-	margin-left: 5px;
-	padding: 10px;
-	border-radius: 5px;
+  margin-left: 5px;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .header p {
-	font-size: 1.5 rem;
+  font-size: 1.5 rem;
 }
 
 .header #search-box {
-	height: 2rem;
-	padding: 5px;
-	border-radius: 1px;
-	font-size: 1.5 rem;
-	width: 400px;
+  height: 2rem;
+  padding: 5px;
+  border-radius: 1px;
+  font-size: 1.5 rem;
+  width: 400px;
 }
 
 #search {
-	font-size: 1rem;
-	margin-right: 5px;
+  font-size: 1rem;
+  margin-right: 5px;
 }
 
 .header input {
-	font-size: 1rem;
+  font-size: 1rem;
 }
 /* ITEM LIST / ITEMS */
 main {
-	background-color: rgb(237, 237, 224);
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	justify-content: center;
-	width: 90%;
-	max-width: 1400px;
+  background-color: rgb(237, 237, 224);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 90%;
+  max-width: 1400px;
 }
 
 .headline-item {
-	width: 90%;
-	margin: 5px 50px 0px 40px;
+  width: 90%;
+  margin: 5px 50px 0px 40px;
 }
 
 .headline-title {
-	font-size: 1rem;
-	font-weight: 500;
-	margin-right: 10px;
-	margin-bottom: 0px;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-right: 10px;
+  margin-bottom: 0px;
 }
 
 .headline-source,
 .headline-details {
-	font-size: 0.8rem;
-	color: grey;
+  font-size: 0.8rem;
+  color: grey;
 }
 
 .firstFooter {
-	color: white;
-	background-color: #ff7316;
-	position: relative;
-	width: 100%;
-	padding: 2em 2em;
+  color: white;
+  background-color: #ff7316;
+  position: relative;
+  width: 100%;
+  padding: 2em 2em;
 }
