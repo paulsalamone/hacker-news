@@ -5,10 +5,8 @@ let Footer = () => {
 	return (
 		<div className="firstFooter">
 			<div className="row">
-				<p className="col-sm">
-					<a href="undefined">Guidelines</a>|<a href="undefined">FAQ</a>|
-					<a href="undefined">Lists</a>|<a href="undefined">Security</a>|
-					<a href="undefined">Legal</a>|<a href="undefined">Contact</a>
+				<p className="col-sm ">
+					© 2021| Guidelines | FAQ | Lists | Security | Legal | Contact
 				</p>
 			</div>
 		</div>
