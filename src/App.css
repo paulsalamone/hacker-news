@@ -6,6 +6,7 @@
 :root {
   --dark: rgb(73, 0, 116);
   --light: #0f0;
+  background-color: black;
 }
 
 body {
