@@ -76,6 +76,11 @@
   font-size: 1rem;
 }
 /* ITEM LIST / ITEMS */
+
+.results-message {
+  display: block;
+}
+
 main {
   background-color: rgb(237, 237, 224);
   display: flex;

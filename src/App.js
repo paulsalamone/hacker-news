@@ -1,46 +1,57 @@
+import { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./Header";
-import ItemList from "./ItemList";
-import Pagination from "./Pagination";
 import Footer from "./Footer";
-import { useState, useEffect } from "react";
 import axios from "axios";
 
 function App(props) {
-  const [items, setItems] = useState([]);
+  const [data, setData] = useState({ hits: [] });
+  const [query, setQuery] = useState("");
+  const [search, setSearch] = useState("");
 
-  const example = props.searchTerm;
+  const example = "iPhone";
 
-  const hnApi = `http://hn.algolia.com/api/v1/search?query=${example}`;
+  useEffect(async () => {
+    const result = await axios(
+      `https://hn.algolia.com/api/v1/search?query=${search}`
+    );
 
-  //use effect used to run when component is mounting
+    setData(result.data);
+  }, [search]);
 
-  // fetch method using Axios to fetch API
-  const fetchData = () => {
-    axios
-      .get(hnApi)
-      .then((res) => setItems(res.data))
-      .catch((err) => console.error(err));
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("submitted!");
+    setSearch(query);
+    setQuery("");
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  // console.log(items.hits);
-
   return (
-    <div className="App">
+    <>
       <Header />
 
-      <ItemList hits={items.hits} />
-
-      {/* <Spinner className="spinner" /> */}
-
-      <Pagination />
+      <form onSubmit={handleSubmit}>
+        <input
+          value={query}
+          onChange={(e) => {
+            setQuery(e.target.value);
+          }}
+        ></input>
+        <button type="submit">Submit</button>
+      </form>
+      <p className="results-message">
+        Search results for search string: <b>"{search}"</b>
+      </p>
+      <ul>
+        {data.hits.map((item) => (
+          <li key={item.objectID}>
+            <a href={item.url}>{item.title}</a>
+          </li>
+        ))}
+      </ul>
 
       <Footer />
-    </div>
+    </>
   );
 }
 

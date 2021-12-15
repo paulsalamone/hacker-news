@@ -3,9 +3,11 @@ import "./App.css";
 import logo from "./assets/logo.png";
 
 const Header = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+  // const [searchTerm, setSearchTerm] = useState("");
 
-  useEffect(() => {}, []);
+  // useEffect(() => {}, []);
+
+  // console.log(searchTerm);
 
   return (
     <>
@@ -14,7 +16,8 @@ const Header = () => {
           <img src={logo} id="logo" alt="logo" />
           <h1>Hacker News</h1>
         </div>
-        <form onChange={() => setSearchTerm(searchTerm)}>
+
+        {/* <form onSubmit={() => setSearchTerm(searchTerm)}>
           <p id="search">Search: </p>
           <input
             type="text"
@@ -23,7 +26,7 @@ const Header = () => {
             value={searchTerm}
           ></input>
           <button>Submit</button>
-        </form>
+        </form> */}
       </header>
     </>
   );
