@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+ import React, { useState, useEffect } from "react";
 import "./App.css";
 import logo from "./assets/logo-new.svg";
 
-const Header = ({ search, setSearch, query, setQuery }) => {
+const Header = ({search, setSearch, query, setQuery}) => {
+  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(`${search} submitted!`);
@@ -18,14 +20,14 @@ const Header = ({ search, setSearch, query, setQuery }) => {
           <h1>Hacker News</h1>
         </div>
         <form onSubmit={handleSubmit}>
-          <input
-            value={query}
-            onChange={(e) => {
-              setQuery(e.target.value);
-            }}
-          ></input>
-          <button type="submit">Submit</button>
-        </form>
+        <input
+          value={query}
+          onChange={(e) => {
+            setQuery(e.target.value);
+          }}
+        ></input>
+        <button type="submit">Submit</button>
+      </form>
       </header>
     </>
   );
