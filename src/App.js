@@ -10,14 +10,27 @@ function App() {
   const [page, setPage] = useState("2");
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("");
+  const [loading, setLoading] = useState(true);
 
-  useEffect(async () => {
-    const result = await axios(
-      `https://hn.algolia.com/api/v1/search?query=${search}&page=${page}&hitsPerPage=18`
-    );
+  
 
-    setData(result.data);
+  const fetchData = async () => {
+    await axios
+      .get(`https://hn.algolia.com/api/v1/search?query=${search}&page=${page}&hitsPerPage=18`)
+      .then((response) => {
+          setData(response.data);
+      })
+      .catch((error) => alert(error));
+      setLoading(false);
+
+  };
+
+  useEffect(() => {
+    fetchData();
   }, [search]);
+
+
+
 
   return (
     <>
@@ -27,7 +40,54 @@ function App() {
         setSearch={setSearch}
         setQuery={setQuery}
       />
-      <ItemList data={data} search={search} />
+      {loading 
+      ? <div className="container">
+          <div className="row">
+            <div className="col-4"></div>
+              <div className="col-4">
+                <div style={{height: '300px'}}></div>
+                <div style={{textAlign: 'center', height: '2000px'}}>
+                  <div className="spinner-border text-light" role="status">
+                    <span className="sr-only">Loading...</span>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      : search === "" 
+      ? 
+      <div className="container">
+        <div className="row">
+          <div className="col-4"></div>
+            <div className="col-4">
+              <div style={{height: '300px'}}></div>
+              <div style={{textAlign: 'center', height: '2000px'}}>
+                <div className="text-light">
+                  <span className="">Please provide a search term ...</span>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      : data.nbHits === 0
+      ? 
+      <div className="container">
+        <div className="row">
+          <div className="col-4"></div>
+            <div className="col-4">
+              <div style={{height: '300px'}}></div>
+              <div style={{textAlign: 'center', height: '2000px'}}>
+                <div className="text-light">
+                  <span className="">We tried our best,<br />
+                  but couldn't find anything!</span>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+    : <ItemList data={data} search={search} />
+      }
+    
       <Footer />
     </>
   );

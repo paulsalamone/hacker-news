@@ -26,7 +26,7 @@ const Header = ({search, setSearch, query, setQuery}) => {
             setQuery(e.target.value);
           }}
         ></input>
-        <button type="submit">Submit</button>
+        <button type="submit">Search</button>
       </form>
       </header>
     </>
