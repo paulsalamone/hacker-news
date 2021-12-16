@@ -126,6 +126,14 @@ main {
   margin: auto;
 }
 
+.instructions {
+  font-size: 1.8rem;
+}
+
+#green {
+  color: #0f0;
+}
+
 /* OLD VERSION */
 /*
 .items-list {
@@ -185,12 +193,13 @@ main {
   background-color: white;
   /* width: auto; */
   height: 95%;
-  padding: 10px 25px;
+  padding: 25px;
   /* border: 1px black solid; */
 }
 
 .headline-title {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
+  line-height: 1.8rem;
   font-weight: 500;
   margin-right: 10px;
   margin-bottom: 0px;
@@ -199,6 +208,12 @@ main {
   font-weight: 700;
   overflow-wrap: break-word;
   word-wrap: break-word;
+}
+
+.headline-title:hover {
+  text-decoration: none;
+  background-color: black;
+  color: #0f0;
 }
 
 .headline-url,
