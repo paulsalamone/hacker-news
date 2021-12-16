@@ -13,7 +13,7 @@ function App() {
 
   useEffect(async () => {
     const result = await axios(
-      `https://hn.algolia.com/api/v1/search?query=${search}&page=${page}`
+      `https://hn.algolia.com/api/v1/search?query=${search}&page=${page}&hitsPerPage=18`
     );
 
     setData(result.data);
@@ -27,22 +27,7 @@ function App() {
         setSearch={setSearch}
         setQuery={setQuery}
       />
-
-      <>
-        {/* <p className="results-message">
-          Search results for search string: <b>{search}</b>
-        </p> */}
-
-        <ItemList data={data} search={search} />
-        {/*         
-        <ol>
-          {data.hits.map((item) => (
-            <li key={item.objectID}>
-              <a href={item.url}>{item.title !== "" && item.title}</a>
-            </li>
-          ))}
-        </ol> */}
-      </>
+      <ItemList data={data} search={search} />
       <Footer />
     </>
   );

@@ -90,6 +90,7 @@ body {
 .results-message {
   display: block;
   color: white;
+  margin-left: 30px;
 }
 
 main {

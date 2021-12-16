@@ -8,16 +8,17 @@ const ItemList = ({ data, search }) => {
     <>
       <main>
         <p className="results-message">
-          Search results for search string: <b>"{search}"</b>
+          Search results for: <b>"{search}"</b>
         </p>
         <div className="items-list">
-          {data.hits.map((item) => {
-            console.log(item);
+        {/* console.log(data.exhaustiveNbHits); */}
+
+          {data.hits.map((item, index) => {
 
             return (
               <div className="headline-item-frame">
-                <div key={item.objectID} className="headline-item">
-                  <a href={item.url} className="headline-title">
+                <div key={index} className="headline-item">
+                  <a href={item.url} className="headline-title" target="_blank">
                     {item.title}
                   </a>
                   <p className="headline-author">Author: {item.author}</p>
