@@ -33,9 +33,14 @@ const ItemList = ({ data, search }) => {
   return (
     <>
       <main>
-        <p className="results-message">
+        {search === ''
+        ? <div></div>
+        : <p className="results-message">
           Search results for: <b id="search-text">"{search}"</b>
+        <p className="results-message">
+          Search results for: <b>"{search}"</b>
         </p>
+        }
         <div className="items-list">
           {/* console.log(data.exhaustiveNbHits); */}
 
