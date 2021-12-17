@@ -7,7 +7,7 @@ import axios from "axios";
 
 function App() {
   const [data, setData] = useState({ hits: [] });
-  const [page, setPage] = useState("2");
+  const [page, setPage] = useState(0);
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(true);
@@ -27,7 +27,7 @@ function App() {
 
   useEffect(() => {
     fetchData();
-  }, [search]);
+  }, [search,page]);
 
 
 
@@ -46,7 +46,7 @@ function App() {
             <div className="col-4"></div>
               <div className="col-4">
                 <div style={{height: '300px'}}></div>
-                <div style={{textAlign: 'center', height: '2000px'}}>
+                <div style={{textAlign: 'center', height: '1000px'}}>
                   <div className="spinner-border text-light" role="status">
                     <span className="sr-only">Loading...</span>
                   </div>
@@ -61,7 +61,7 @@ function App() {
           <div className="col-4"></div>
             <div className="col-4">
               <div style={{height: '300px'}}></div>
-              <div style={{textAlign: 'center', height: '2000px'}}>
+              <div style={{textAlign: 'center', height: '1000px'}}>
                 <div className="text-light">
                   <span className="">Please provide a search term ...</span>
                 </div>
@@ -76,7 +76,7 @@ function App() {
           <div className="col-4"></div>
             <div className="col-4">
               <div style={{height: '300px'}}></div>
-              <div style={{textAlign: 'center', height: '2000px'}}>
+              <div style={{textAlign: 'center', height: '1000px'}}>
                 <div className="text-light">
                   <span className="">We tried our best,<br />
                   but couldn't find anything!</span>
@@ -85,7 +85,7 @@ function App() {
           </div>
         </div>
     </div>
-    : <ItemList data={data} search={search} />
+    : <ItemList data={data} search={search} page={page} setPage={setPage} />
       }
     
       <Footer />
