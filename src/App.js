@@ -28,6 +28,9 @@ function App() {
     fetchData();
   }, [search,page]);
 
+  useEffect(() => {
+    setPage(0);
+  },[search])
   return (
     <>
       <Header
