@@ -7,7 +7,7 @@ import axios from "axios";
 
 function App() {
   const [data, setData] = useState({ hits: [] });
-  const [page, setPage] = useState("2");
+  const [page, setPage] = useState(0);
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(true);
@@ -26,7 +26,7 @@ function App() {
 
   useEffect(() => {
     fetchData();
-  }, [search]);
+  }, [search,page]);
 
   return (
     <>
@@ -40,11 +40,12 @@ function App() {
         <div className="container">
           <div className="row">
             <div className="col-4"></div>
-            <div className="col-4">
-              <div style={{ height: "300px" }}></div>
-              <div style={{ textAlign: "center", height: "2000px" }}>
-                <div className="spinner-border text-light" role="status">
-                  <span className="sr-only">Loading...</span>
+              <div className="col-4">
+                <div style={{height: '300px'}}></div>
+                <div style={{textAlign: 'center', height: '1000px'}}>
+                  <div className="spinner-border text-light" role="status">
+                    <span className="sr-only">Loading...</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -55,8 +56,8 @@ function App() {
           <div className="row">
             <div className="col-4"></div>
             <div className="col-4">
-              <div style={{ height: "300px" }}></div>
-              <div style={{ textAlign: "center", height: "2000px" }}>
+              <div style={{height: '300px'}}></div>
+              <div style={{textAlign: 'center', height: '1000px'}}>
                 <div className="text-light">
                   <span className="instructions">
                     Please provide a search term
@@ -74,8 +75,8 @@ function App() {
           <div className="row">
             <div className="col-4"></div>
             <div className="col-4">
-              <div style={{ height: "300px" }}></div>
-              <div style={{ textAlign: "center", height: "2000px" }}>
+              <div style={{height: '300px'}}></div>
+              <div style={{textAlign: 'center', height: '1000px'}}>
                 <div className="text-light">
                   <span className="">
                     We tried our best,
@@ -87,10 +88,9 @@ function App() {
             </div>
           </div>
         </div>
-      ) : (
-        <ItemList data={data} search={search} />
-      )}
-
+    </div>
+    : <ItemList data={data} search={search} page={page} setPage={setPage} />
+      }
       <Footer />
     </>
   );

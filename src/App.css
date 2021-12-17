@@ -278,6 +278,45 @@ main {
     margin: auto;
   }
 
+} 
+
+#prevButton {
+  color: white;
+  background-color: black;
+  padding: 0 10px;
+  margin: 0 10px;
+}
+
+#nextButton {
+  color: white;
+  background-color: black;
+  padding: 0 10px;
+  margin: 0 10px;
+}
+
+#pageNumber {
+  padding: 0 10px;
+  margin: 0 10px;
+}
+#firstPage {
+  color: white;
+  background-color: black;
+  padding: 0 10px;
+  margin: 0 10px;
+}
+#lastPage {
+  color: white;
+  background-color: black;
+  padding: 0 10px;
+  margin: 0 10px;
+}
+
+.pageButtons {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
   .header form {
     display: flex;
     flex-direction: row;
@@ -317,4 +356,4 @@ main {
     font-size: 1.5 rem;
     width: 90%;
   } */
-}
+

@@ -1,11 +1,44 @@
 import React from 'react';
+import "./App.css";
 
-const Pagination = () => {
 
+const Pagination = ({data, page, setPage}) => {
+	const goNext = () => {
+		setPage(page + 1);
+	  }
+	  const goPrev = () => {
+		setPage(page - 1);
+	  }
+	  const goLast = () => {
+		setPage(data.nbPages - 1);
+	  }
+	  const goFirst = () => {
+		setPage(0);
+	  }
 	return (
-		<>
-		<p>1 2 3 4 5</p>
-		</>
+		<div className="pageButtons">
+		{ page === 0
+		? <div>
+		   <span id="pageNumber">Page: {page + 1}</span>
+		   <button id="nextButton" onClick={goNext}>Next</button>
+		   <button id="lastPage" onClick={goLast}>Last Page</button>
+		  </div>
+		: page === data.nbPages - 1
+		? <div>
+		   <button id="firstPage" onClick={goFirst}>First Page</button>
+		   <button id="prevButton" onClick={goPrev}>Previous</button>
+		   <span id="pageNumber">Page: {page + 1}</span>
+		  </div>
+		: <div>
+		   <button id="firstPage" onClick={goFirst}>First Page</button>
+		   <button id="prevButton" onClick={goPrev}>Previous</button>
+		   <span id="pageNumber">Page: {page + 1}</span>
+		   <button id="nextButton" onClick={goNext}>Next</button>
+		   <button id="lastPage" onClick={goLast}>Last Page</button>
+		  </div>
+		 }
+		
+	 	 </div>
 	)
 
 }
