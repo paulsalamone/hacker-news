@@ -36,7 +36,7 @@ function App() {
         setSearch={setSearch}
         setQuery={setQuery}
       />
-      {loading ? (
+      {loading ? 
         <div className="container">
           <div className="row">
             <div className="col-4"></div>
@@ -50,8 +50,7 @@ function App() {
               </div>
             </div>
           </div>
-        </div>
-      ) : search === "" ? (
+       : search === "" ? 
         <div className="container">
           <div className="row">
             <div className="col-4"></div>
@@ -70,7 +69,7 @@ function App() {
             </div>
           </div>
         </div>
-      ) : data.nbHits === 0 ? (
+       : data.nbHits === 0 ? 
         <div className="container">
           <div className="row">
             <div className="col-4"></div>
@@ -88,7 +87,6 @@ function App() {
             </div>
           </div>
         </div>
-    </div>
     : <ItemList data={data} search={search} page={page} setPage={setPage} />
       }
       <Footer />

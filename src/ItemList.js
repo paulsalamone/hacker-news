@@ -12,7 +12,6 @@ const colour = () => {
   }
   return result;
 };
-const ItemList = ({ data, search }) => {
   return (
     <>
       <main>
