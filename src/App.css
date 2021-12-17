@@ -64,11 +64,11 @@ body {
 
 .header input {
   background-color: black;
-  height: 42px;
+  height: 44px;
   width: 400px;
   border: 2px solid #0f0;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 
 .header form button {
@@ -83,7 +83,7 @@ body {
   );
   border: 0px;
   /* color: white; */
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .header p {
